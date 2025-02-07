@@ -53,7 +53,10 @@ Get-ChildItem -Path "C:\CCDC-Tools\NUCCDC-tools-Scripts\hardening_scripts" -Filt
 ```
 
 # Install Sysinternal Tools
-1. 
+```powershell
+Invoke-WebRequest -Uri "https://raw.githubusercontent.com/Dr3wL/Resources/main/sysinternals.ps1" -OutFile "downloads.ps1"
+.\downloads.ps1
+```
 
 # Things to Remember
 1. ```quser``` often ```quser /server:<server-name>```
