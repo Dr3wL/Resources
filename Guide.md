@@ -44,7 +44,8 @@
 2. winrm has been scored in the past, if it breaks look back at harden_winrm.ps1
 3. Runs all scripts in NUCCDC-tools-Scripts\hardening_scripts
 ```powershell
-Get-ChildItem -Path "C:\CCDC-Tools\NUCCDC-tools-Scripts\hardening_scripts" -Filter "*.ps1" | ForEach-Object { & $_.FullName }```
+Get-ChildItem -Path "C:\CCDC-Tools\NUCCDC-tools-Scripts\hardening_scripts" -Filter "*.ps1" | ForEach-Object { & $_.FullName }
+```
 
 # Install Sysinternal Tools
 
