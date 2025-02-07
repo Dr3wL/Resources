@@ -1,28 +1,38 @@
-# Installs and extracts Sysinternals Suite
-
-# Download URL and the destination path
+# Edited from UML
+# Set variables
 $url = "https://download.sysinternals.com/files/SysinternalsSuite.zip"
-$destination = "$env:USERPROFILE\Downloads\SysinternalsSuite.zip"
-$extractPath = "$env:USERPROFILE\Documents\Sysinternals"
-$importantToolsPath = "$env:USERPROFILE\Documents\Important-Sysinternals"
+$destination = "$env:TEMP\SysinternalsSuite.zip"
+$extractPath = "$env:TEMP\SysinternalsExtracted"
+$finalPath = "C:\Sysinternals-Tools"
 
-# Relevant Sysinternals tools to copy
-$importantTools = @('procexp64.exe, Procmon64.exe', 'Autoruns64.exe', 'PsLoggedOn.exe', 'LogonSessions.exe', 'AccessChk.exe', 'VMMap.exe', 'Sigcheck.exe', 'Tcpview.exe', 'PsService.exe', 'Sysmon.exe')
+# Define important tools
+$importantTools = @(
+    'procexp64.exe', 'Procmon64.exe', 'Autoruns64.exe', 'PsLoggedOn.exe', 
+    'LogonSessions.exe', 'AccessChk.exe', 'VMMap.exe', 'Sigcheck.exe', 
+    'Tcpview.exe', 'PsService.exe', 'Sysmon.exe'
+)
 
-# Download the zip file
+# Download Sysinternals Suite
 Invoke-WebRequest -Uri $url -OutFile $destination
 
-# Extract the zip file
-Expand-Archive -Path $destination -DestinationPath $extractPath
+# Extract Sysinternals Suite
+Expand-Archive -Path $destination -DestinationPath $extractPath -Force
 
-# Create Important-Sysinternals directory if it doesn't exist
-if (-not (Test-Path $importantToolsPath)) {
-    New-Item -Path $importantToolsPath -ItemType Directory
+# Create final destination folder if it doesn't exist
+if (-not (Test-Path $finalPath)) {
+    New-Item -Path $finalPath -ItemType Directory -Force
 }
 
-# Copy the relevant tools to Important-Sysinternals
+# Move only the selected tools
 foreach ($tool in $importantTools) {
-    Copy-Item -Path "$extractPath\$tool" -Destination $importantToolsPath
+    $sourceFile = Join-Path -Path $extractPath -ChildPath $tool
+    if (Test-Path $sourceFile) {
+        Move-Item -Path $sourceFile -Destination $finalPath -Force
+    }
 }
 
-Write-Output "Sysinternals Suite installed and relevant tools copied to Important-Sysinternals."
+# Cleanup temporary files
+Remove-Item -Path $destination -Force
+Remove-Item -Path $extractPath -Recurse -Force
+
+Write-Output "Sysinternals Suite installed. Selected tools are in C:\Sysinternals-Tools."
