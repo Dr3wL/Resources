@@ -8,8 +8,8 @@ $finalPath = "C:\Sysinternals-Tools"
 # Define important tools
 $importantTools = @(
     'procexp64.exe', 'Procmon64.exe', 'Autoruns64.exe', 'PsLoggedOn.exe', 
-    'LogonSessions.exe', 'AccessChk.exe', 'VMMap.exe', 'Sigcheck.exe', 
-    'Tcpview.exe', 'PsService.exe', 'Sysmon.exe'
+    'LogonSessions.exe', 'AccessChk.exe', 'Sigcheck.exe', 
+    'Tcpview.exe', 'Sysmon.exe'
 )
 
 # Download Sysinternals Suite
