@@ -36,19 +36,15 @@
    New-NetFirewallRule -DisplayName "Block Inbound SSH" -Direction Inbound -Action Block -Protocol TCP -LocalPort 22
    New-NetFirewallRule -DisplayName "Block Outbound SSH" -Direction Outbound -Action Block -Protocol TCP -RemotePort 22
     ```
-3.```powershell
-# Remove OpenSSH components
-Remove-WindowsCapability -Online -Name OpenSSH.Server`~~~~0.0.1.0
-Remove-WindowsCapability -Online -Name OpenSSH.Client`~~~~0.0.1.0
-Remove-Item -Path "C:\Windows\System32\ssh.exe" -Force
-Remove-Item -Path "C:\Windows\System32\sshd.exe" -Force
-Remove-Item -Path "C:\ProgramData\ssh" -Recurse -Force
+2. NECCDC-2025-scripts/removeSSH.ps1
+3. services - look for openssh, sshd, ssh
 
-# Check for remaining SSH components
-Get-Service | Where-Object Name -like 'ssh'
-Get-Process | Where-Object Name -like 'ssh'
-Get-WindowsCapability -Online | Where-Object Name -like 'OpenSSH*'
-
+# Further Hardening
+1. NUCCDC-tools-Scripts\hardening_scripts
+2. Know what your running... Its well commented
+4. winrm has been scored in the past, if it breaks look back at harden_winrm.ps1
+5. Runs all scripts in NUCCDC-tools-Scripts\hardening_scripts
+```powershell Get-ChildItem -Path "C:\CCDC-Tools\NUCCDC-tools-Scripts\hardening_scripts" -Filter "*.ps1" | ForEach-Object { & $_.FullName }
 
 
 
