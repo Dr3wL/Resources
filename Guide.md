@@ -40,11 +40,14 @@
 3. services - look for openssh, sshd, ssh
 
 # Further Hardening
-1. NUCCDC-tools-Scripts\hardening_scripts
-2. Know what your running... Its well commented
-4. winrm has been scored in the past, if it breaks look back at harden_winrm.ps1
-5. Runs all scripts in NUCCDC-tools-Scripts\hardening_scripts
+1. Know what your running... Its well commented
+2. winrm has been scored in the past, if it breaks look back at harden_winrm.ps1
+3. Runs all scripts in NUCCDC-tools-Scripts\hardening_scripts
 ```powershell Get-ChildItem -Path "C:\CCDC-Tools\NUCCDC-tools-Scripts\hardening_scripts" -Filter "*.ps1" | ForEach-Object { & $_.FullName }
-
+ ```
+# Things to Remember
+1. ```powershellquser``` often
+2. backups are good
+3. 
 
 
