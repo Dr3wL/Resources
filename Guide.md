@@ -27,7 +27,7 @@
 5. Services - disable uneeded
 6. task manager / sysinternals: Process Explorer / Process Hacker
 
-# Don't forget about file shares
+# File shares
     Get-SmbShare | Select-Object Name, Path, Description, ShareState
 
 # Destory SSH from existence (unless for some reason needed)
@@ -50,7 +50,8 @@ Get-ChildItem -Path "C:\CCDC-Tools\NUCCDC-tools-Scripts\hardening_scripts" -Filt
 # Install Sysinternal Tools
 
 # Things to Remember
-1. ```quser``` often
+1. ```quser``` often ```quser /server:<server-name>```
+    - ```logoff <id>```
 2. backups are good
 3. 
 
