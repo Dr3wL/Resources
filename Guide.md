@@ -25,7 +25,7 @@
 2. Go through "add or remove programs"
     - remove things like python anything else sus
 4. Go through Features and Capabilities
-5. Services - disable uneeded
+5. Services - disable unneeded
 6. task manager / sysinternals: Process Explorer / Process Hacker
 7. Windows Defender Exclusions
    - If you can not remove them its because of registry keys or group policy
