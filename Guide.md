@@ -53,11 +53,13 @@ Get-ChildItem -Path "C:\CCDC-Tools\NUCCDC-tools-Scripts\hardening_scripts" -Filt
 ```
 
 # Install Sysinternal Tools
+1. 
 
 # Things to Remember
 1. ```quser``` often ```quser /server:<server-name>```
     - ```logoff <id>```
 2. backups are good
-3. 
+3. Remember what is scored / if its http or https
+4. Idk what a winrm connection looks like
 
 
