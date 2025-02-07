@@ -26,6 +26,11 @@
 4. Go through Features and Capabilities
 5. Services - disable uneeded
 6. task manager / sysinternals: Process Explorer / Process Hacker
+7. Windows Defender Exclusions
+   - If you can not remove them its because of registry keys or group policy
+```[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Defender\Exclusions\Paths]```
+```[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Defender\Exclusions\Extensions]```
+```[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Defender\Exclusions\Processes]```
 
 # File shares
     Get-SmbShare | Select-Object Name, Path, Description, ShareState
