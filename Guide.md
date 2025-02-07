@@ -28,9 +28,7 @@
 6. task manager / sysinternals: Process Explorer / Process Hacker
 
 # Don't forget about file shares
-    ```powershell
     Get-SmbShare | Select-Object Name, Path, Description, ShareState
-    ```
 
 # Destory SSH from existence (unless for some reason needed)
 1. Block in Firewall
