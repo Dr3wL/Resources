@@ -76,3 +76,6 @@ foreach ($scriptPath in $windowsScriptsPaths) {
 
 Write-Host "`nRepositories installed successfully! You can find them in: $baseDestination" -ForegroundColor Cyan
 
+# Comment out Start-MpScan -ScanType FullScan in big-harden.ps1
+(Get-Content "C:\CCDC-Tools\NUCCDC-tools-Scripts\big-harden.ps1") -replace '^(.*Start-MpScan\s+-ScanType\s+FullScan.*)$', '# $1' | Set-Content "C:\CCDC-Tools\NUCCDC-tools-Scripts\big-harden.ps1"
+
