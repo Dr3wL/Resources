@@ -57,6 +57,14 @@ Get-ChildItem -Path "C:\CCDC-Tools\NUCCDC-tools-Scripts\hardening_scripts" -Filt
 Invoke-WebRequest -Uri "https://raw.githubusercontent.com/Dr3wL/Resources/main/sysinternals.ps1" -OutFile "downloads.ps1"
 .\downloads.ps1
 ```
+1. **procexp64**: Advanced task manager.
+2. **procmon64**: Real-time monitoring tool that tracks file system, registry, and process/thread activity.
+3. **Autoruns64**: Displays all programs configured to run at startup, including those in registry keys and scheduled tasks.
+4. **Tcpview**: Displays active network connections.
+5. **AccessChk.exe**: Examines permissions for files, registry keys, and services, allowing you to see what users/groups have access to certain objects.
+6. **Sigcheck**: Verifies digital signatures of files to detect unsigned or potentially malicious executables. Also checks file version info and VirusTotal integration.
+8. **LogonSessions.exe**: Shows active logon sessions and their associated processes. Helps in identifying unauthorized access.
+9. **PsLoggedOn.exe**: Lists users currently logged into a machine, either locally or remotely. Useful for auditing and security investigations.
 
 # Things to Remember
 1. ```quser``` often ```quser /server:<server-name>```
