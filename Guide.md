@@ -7,9 +7,9 @@
     ```
 3. Open file NUCCDC-tools-Scripts/big-harden.ps1 in notepad
 4. `Ctrl + F` and search for:
-    ```powershell
-    Start-MpScan -ScanType FullScan
-    ```
+```powershell
+Start-MpScan -ScanType FullScan
+```
 5. Comment out the line by adding #
 6. Save file
 7. run big-harden.ps1
@@ -40,10 +40,10 @@
 
 # Destory SSH from existence (unless for some reason needed)
 1. Block in Firewall
-   ```powershell
-   New-NetFirewallRule -DisplayName "Block Inbound SSH" -Direction Inbound -Action Block -Protocol TCP -LocalPort 22
-   New-NetFirewallRule -DisplayName "Block Outbound SSH" -Direction Outbound -Action Block -Protocol TCP -RemotePort 22
-    ```
+```powershell
+New-NetFirewallRule -DisplayName "Block Inbound SSH" -Direction Inbound -Action Block -Protocol TCP -LocalPort 22
+New-NetFirewallRule -DisplayName "Block Outbound SSH" -Direction Outbound -Action Block -Protocol TCP -RemotePort 22
+```
 2. NECCDC-2025-scripts/removeSSH.ps1
 3. services - look for openssh, sshd, ssh
 
