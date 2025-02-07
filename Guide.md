@@ -11,9 +11,9 @@
     Start-MpScan -ScanType FullScan
     ```
 5. Comment out the line by adding #
-5. Run scan manually after
 6. Save file
 7. run big-harden.ps1
+8. Run scan manually after
 
 # Enumerate Environment
 1. run information.bat (outputs output.txt, tasks.xml in NUCCDC-tools-Scripts folder) or the NECCDC-2025-Scripts/inventory.ps1 + localAutoRunSchedTask (outputs to current user desktop) or all
