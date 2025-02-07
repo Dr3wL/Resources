@@ -23,9 +23,11 @@ Invoke-WebRequest -Uri "https://raw.githubusercontent.com/Dr3wL/Resources/main/d
 6. task manager / sysinternals: Process Explorer / Process Hacker
 7. Windows Defender Exclusions
    - If you can not remove them its because of registry keys or group policy
-```[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Defender\Exclusions\Paths]```
-```[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Defender\Exclusions\Extensions]```
-```[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Defender\Exclusions\Processes]```
+```plaintext
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Defender\Exclusions\Paths]
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Defender\Exclusions\Extensions]
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Defender\Exclusions\Processes]
+```
 
 
 # File shares
