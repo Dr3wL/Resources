@@ -15,6 +15,7 @@
 7. run big-harden.ps1
 8. Run scan manually after
 
+
 # Enumerate Environment
 1. run information.bat (outputs output.txt, tasks.xml in NUCCDC-tools-Scripts folder) or the NECCDC-2025-Scripts/inventory.ps1 + localAutoRunSchedTask (outputs to current user desktop) or all
     - Delete autoruns reg keys
@@ -32,8 +33,10 @@
 ```[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Defender\Exclusions\Extensions]```
 ```[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Defender\Exclusions\Processes]```
 
+
 # File shares
     Get-SmbShare | Select-Object Name, Path, Description, ShareState
+    
 
 # Destory SSH from existence (unless for some reason needed)
 1. Block in Firewall
@@ -44,6 +47,7 @@
 2. NECCDC-2025-scripts/removeSSH.ps1
 3. services - look for openssh, sshd, ssh
 
+
 # Further Hardening
 1. Know what your running... Its well commented
 2. winrm has been scored in the past, if it breaks look back at harden_winrm.ps1
@@ -51,6 +55,7 @@
 ```powershell
 Get-ChildItem -Path "C:\CCDC-Tools\NUCCDC-tools-Scripts\hardening_scripts" -Filter "*.ps1" | ForEach-Object { & $_.FullName }
 ```
+
 
 # Install Sysinternal Tools
 ```powershell
@@ -66,11 +71,14 @@ Invoke-WebRequest -Uri "https://raw.githubusercontent.com/Dr3wL/Resources/main/s
 8. **LogonSessions.exe**: Shows active logon sessions and their associated processes. Helps in identifying unauthorized access.
 9. **PsLoggedOn.exe**: Lists users currently logged into a machine, either locally or remotely. Useful for auditing and security investigations.
 
+
 # Things to Remember
 1. ```quser``` often ```quser /server:<server-name>```
     - ```logoff <id>```
 2. backups are good
 3. Remember what is scored / if its http or https
 4. Idk what a winrm connection looks like
+
+
 
 
