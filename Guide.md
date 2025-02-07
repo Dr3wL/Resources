@@ -3,7 +3,7 @@
 1. Open PowerShell as **Administrator**.
 2. Copy and paste the following command to download and run the script:
     ```powershell
-    Invoke-WebRequest -Uri "https://github.com/Dr3wL/Resources/blob/main/downloads.ps1" -OutFile "downloads.ps1"
+    Invoke-WebRequest -Uri "https://raw.githubusercontent.com/Dr3wL/Resources/main/downloads.ps1" -OutFile "downloads.ps1"
     .\downloads.ps1
     ```
 3. Open file NUCCDC-tools-Scripts/big-harden.ps1
