@@ -5,7 +5,6 @@
 Invoke-WebRequest -Uri "https://raw.githubusercontent.com/Dr3wL/Resources/main/downloads.ps1" -OutFile "downloads.ps1"
 .\downloads.ps1
 ```
-3. Save file
 4. Run ```C:\CCDC-Tools\NUCCDC-tools-Scripts\big-harden.ps1```
 5. Run Windows Defender scan manually after
 
