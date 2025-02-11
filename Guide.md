@@ -54,8 +54,7 @@ Get-ChildItem -Path "C:\CCDC-Tools\NUCCDC-tools-Scripts\hardening_scripts" -Filt
 
 # Install Sysinternal Tools
 ```powershell
-Invoke-WebRequest -Uri "https://raw.githubusercontent.com/Dr3wL/Resources/main/sysinternals.ps1" -OutFile "downloads.ps1"
-.\downloads.ps1
+Invoke-WebRequest -Uri "https://raw.githubusercontent.com/Dr3wL/Resources/main/sysinternals.ps1"
 ```
 1. **procexp64**: Advanced task manager.
 2. **procmon64**: Real-time monitoring tool that tracks file system, registry, and process/thread activity.
