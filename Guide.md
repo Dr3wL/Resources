@@ -39,7 +39,7 @@ Invoke-WebRequest -Uri "https://raw.githubusercontent.com/Dr3wL/Resources/main/d
 New-NetFirewallRule -DisplayName "Block Inbound SSH" -Direction Inbound -Action Block -Protocol TCP -LocalPort 22
 New-NetFirewallRule -DisplayName "Block Outbound SSH" -Direction Outbound -Action Block -Protocol TCP -RemotePort 22
 ```
-2. C:\CCDC-Tools\NECCDC-2025-Scripts\removeSSH.ps1
+2. run ```C:\CCDC-Tools\NECCDC-2025-Scripts\removeSSH.ps1```
 3. services - look for openssh, sshd, ssh
 
 
