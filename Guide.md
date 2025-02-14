@@ -30,16 +30,18 @@ Invoke-WebRequest -Uri "https://raw.githubusercontent.com/Dr3wL/Resources/main/d
 
 
 # File shares
-    Get-SmbShare | Select-Object Name, Path, Description, ShareState
+```
+Get-SmbShare | Select-Object Name, Path, Description, ShareState
+```
 1. Remove share temporarily:
-   ```
-   Remove-SmbShare -Name C$ -Force
-   ```
-    - This change will not persist after a reboot.
+```
+Remove-SmbShare -Name C$ -Force
+```
+- This change will not persist after a reboot.
 3. Permenant:
-    ```
-   New-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Services\LanmanServer\Parameters" -Name "AutoShareWks" -Value 0 -PropertyType DWORD -Force
-    ```
+```
+New-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Services\LanmanServer\Parameters" -Name "AutoShareWks" -Value 0 -PropertyType DWORD -Force
+```
 
 # Destory SSH from existence (unless for some reason needed)
 1. Block in Firewall
