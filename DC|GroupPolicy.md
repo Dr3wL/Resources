@@ -36,7 +36,7 @@ Get-GPOReport -All -ReportType Html -Path "C:\Temp\All-GPOs.html"
 https://github.com/EvotecIT/GPOZaurr
   - https://evotec.xyz/the-only-command-you-will-ever-need-to-understand-and-fix-your-group-policies-gpo/
 
-#SPN Query for vulnerable Kerb
+#SPN Query for accounts vulnerable to Kerberoasting
 ```powershell
 Import-Module ActiveDirectory
 
