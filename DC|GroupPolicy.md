@@ -2,6 +2,7 @@
 1. **create new domain admin**
 2. **Add domain admins to protected users**
 ```powershell
+# Individually maybe not this line
 Add-ADGroupMember -Identity "Protected Users" -Members "Domain Admins"
 ```
    
