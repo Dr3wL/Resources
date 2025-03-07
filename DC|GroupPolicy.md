@@ -47,5 +47,12 @@ Get-ADUser -Filter "ServicePrincipalName -like '*'" -Properties ServicePrincipal
 Select-Object Name, SamAccountName, ServicePrincipalName
 ```
 
-
+# Set Machine Account Quota to 0
+```powershell
+Set-ADDomain -Identity "yourdomain.com" -MachineAccountQuota 0
+```
+Confirm Changes:
+```powershell
+Get-ADDomain -Identity "yourdomain.com" | Select-Object MachineAccountQuota
+```
 
