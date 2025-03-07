@@ -1,6 +1,9 @@
 # Domain
 1. **create new domain admin**
 2. **Add domain admins to protected users**
+```powershell
+Add-ADGroupMember -Identity "Protected Users" -Members "Domain Admins"
+```powershell
    
 Kick everyone but yourself and blackteam out of the following:
   - Domain admins
