@@ -1,6 +1,7 @@
 # Domain
 1. **create new domain admin**
 2. **Add domain admins to protected users**
+   
 Kick everyone but yourself and blackteam out of the following:
   - Domain admins
   - Enterprise admins
