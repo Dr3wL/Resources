@@ -43,13 +43,14 @@ Get-GPOReport -All -ReportType Html -Path "C:\Temp\All-GPOs.html"
 https://github.com/EvotecIT/GPOZaurr
   - https://evotec.xyz/the-only-command-you-will-ever-need-to-understand-and-fix-your-group-policies-gpo/
 
-# SPN Query for accounts vulnerable to Kerberoasting
+# SPN Query for accounts vulnerable to Kerberoasting and ASREPRoastable
 ```powershell
 Import-Module ActiveDirectory
 
-# Search for all users with an SPN set
-Get-ADUser -Filter "ServicePrincipalName -like '*'" -Properties ServicePrincipalName | 
-Select-Object Name, SamAccountName, ServicePrincipalName
+# Find both Kerberoastable and ASREPRoastable accounts
+Get-ADUser -Filter * -Properties ServicePrincipalName, DoesNotRequirePreAuth | 
+Where-Object { $_.ServicePrincipalName -or $_.DoesNotRequirePreAuth -eq $true } |
+Select-Object Name, SamAccountName, ServicePrincipalName, DoesNotRequirePreAuth
 ```
 
 # Set Machine Account Quota to 0
