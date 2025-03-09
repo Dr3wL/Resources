@@ -1,6 +1,7 @@
 # Domain
 1. **create new domain admin**
 2. **Add domain admins to protected users**
+3. Machine Account Quota, Kerberoastable, Asreproastable, set long ass passwords on DA accounts. 
 ```powershell
 # Individually maybe not this line
 Add-ADGroupMember -Identity "Protected Users" -Members "Domain Admins"
