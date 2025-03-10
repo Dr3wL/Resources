@@ -51,8 +51,9 @@ Import-Module ActiveDirectory
 Get-ADUser -Filter * -Properties ServicePrincipalName, DoesNotRequirePreAuth | 
 Where-Object { $_.ServicePrincipalName -or $_.DoesNotRequirePreAuth -eq $true } |
 Select-Object Name, SamAccountName, ServicePrincipalName, DoesNotRequirePreAuth
+```
 
-
+```powershell
 Import-Module ActiveDirectory
 
 # Get all vulnerable accounts (Kerberoastable and ASREPRoastable)
@@ -68,7 +69,7 @@ foreach ($Account in $VulnerableAccounts) {
         Write-Host " -> Disabled 'DoesNotRequirePreAuth' for $($Account.SamAccountName)" -ForegroundColor Green
     }
 
-    # Fix Kerberoastable accounts by removing SPNs (if not needed)
+    # Fix Kerberoastable accounts by removing SPNs (if not needed) | Regular user accounts shouldn't need but if an account is running a service like IIS, SQL Server, or a File Server it's needed.
     if ($Account.ServicePrincipalName) {
         Write-Host " -> Checking SPNs for $($Account.SamAccountName): $($Account.ServicePrincipalName)"
         
