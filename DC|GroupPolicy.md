@@ -51,6 +51,44 @@ Import-Module ActiveDirectory
 Get-ADUser -Filter * -Properties ServicePrincipalName, DoesNotRequirePreAuth | 
 Where-Object { $_.ServicePrincipalName -or $_.DoesNotRequirePreAuth -eq $true } |
 Select-Object Name, SamAccountName, ServicePrincipalName, DoesNotRequirePreAuth
+
+
+Import-Module ActiveDirectory
+
+# Get all vulnerable accounts (Kerberoastable and ASREPRoastable)
+$VulnerableAccounts = Get-ADUser -Filter * -Properties ServicePrincipalName, DoesNotRequirePreAuth | 
+    Where-Object { $_.ServicePrincipalName -or $_.DoesNotRequirePreAuth -eq $true }
+
+foreach ($Account in $VulnerableAccounts) {
+    Write-Host "Fixing account: $($Account.SamAccountName)" -ForegroundColor Yellow
+
+    # Fix ASREPRoastable accounts by disabling "DoesNotRequirePreAuth"
+    if ($Account.DoesNotRequirePreAuth -eq $true) {
+        Set-ADUser -Identity $Account.SamAccountName -DoesNotRequirePreAuth $false
+        Write-Host " -> Disabled 'DoesNotRequirePreAuth' for $($Account.SamAccountName)" -ForegroundColor Green
+    }
+
+    # Fix Kerberoastable accounts by removing SPNs (if not needed)
+    if ($Account.ServicePrincipalName) {
+        Write-Host " -> Checking SPNs for $($Account.SamAccountName): $($Account.ServicePrincipalName)"
+        
+        # Ask the user before removing SPNs
+        $confirmation = Read-Host "Remove all SPNs for $($Account.SamAccountName)? (Y/N)"
+        if ($confirmation -match "^[Yy]$") {
+            Set-ADUser -Identity $Account.SamAccountName -Clear ServicePrincipalName
+            Write-Host " -> Removed SPNs from $($Account.SamAccountName)" -ForegroundColor Green
+        } else {
+            Write-Host " -> Skipped SPN removal for $($Account.SamAccountName)" -ForegroundColor Red
+        }
+    }
+
+    # Enforce AES encryption (Optional, but recommended)
+    Set-ADUser -Identity $Account.SamAccountName -Replace @{msDS-SupportedEncryptionTypes=24}
+    Write-Host " -> Enforced AES encryption for $($Account.SamAccountName)" -ForegroundColor Green
+}
+
+Write-Host "Fixing process completed!" -ForegroundColor Cyan
+
 ```
 
 # Set Machine Account Quota to 0
