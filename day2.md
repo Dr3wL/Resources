@@ -3,4 +3,4 @@
 3. Double check WSL is removed
 4. Check WIN-01, WIN-02, programs, services, exclusions, run defender scans
 5. Check IIS on DC-01
-6. 
+6. 7zip open?
